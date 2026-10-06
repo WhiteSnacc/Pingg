@@ -1,12 +1,37 @@
-.navbar {
-    position: fixed;
-    top: 0;
-}
 .nav, .container, .footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
     padding: 10px 20px;
-    background-color: #effff8;
-    color: #fff;
+    background-color: #fff;
+}
+.nav {
+    position: fixed;
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 10px 0;
+    top: 0;
+    border-bottom: 2px solid #701414;
+}
+.nav ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: transparent;
+    margin: 0;
+    width: 100%;
+}
+.nav ul li a {
+    text-decoration: none;
+    color: #178549;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    background-color: #edf9ff;
 }
