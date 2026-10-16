@@ -17,7 +17,7 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: https://whitesnacc.github.io/Pingg/index.html
+      url: https://whitesnacc.github.io/Pingg/
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
