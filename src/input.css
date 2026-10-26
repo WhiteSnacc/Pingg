@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+@theme {
+  --color-mint: #e8fff4;
+  --color-forest: #178549;
+  --color-maroon: #701414;
+  --color-crimson : #DC143C;
+}

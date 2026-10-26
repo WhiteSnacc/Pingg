@@ -3,25 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="global.css">
+    <!-- <link rel="stylesheet" href="global.css"> -->
     <link rel="stylesheet" href="src/output.css">
     <title>Account Profile</title>
 </head>
 <body>
-    <nav class="nav-above">
-        <button class="menu" onclick="toggleMenu()">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+    <nav class="stick top-0 left-0 w-full bg-mint border-b-2 border-maroon z-50">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+        
+        <div class="flex items-center gap-3">
+        <button class="md:hidden flex flex-col justify-between w-6 h-5 bg-transparent border-none cursor-pointer">
+            <span class="w-full h-[3px] bg-forest rounded"></span>
+            <span class="w-full h-[3px] bg-forest rounded"></span>
+            <span class="w-full h-[3px] bg-forest rounded"></span>
         </button>
-        <ul>
-            <li><a href="index.html">Untuk Anda</a></li>
-            <li><a href="komunitas.html">Komunitas</a></li>
-            <li><a href="inbox.html">Kotak Masuk</a></li>
-            <li><a href="profile.html">Anda</a></li>
+        <a href="index.html" class=" font-bold text-forest text-lg no-underline outline-">Pingg<span class="text-crimson">!</span></a>
+        </div>
+
+        <div class="flex items-center flex-1 max-w-[200px] sm:max-w-[300px] px-3 py-1.5 border border-forest rounded-full bg-white">
+        <input 
+            type="text" 
+            placeholder="Cari..." 
+            class="w-full bg-transparent outline-none text-sm text-slate-800 placeholder-slate-400"
+        />
+        </div>
+
+        <ul class="hidden md:flex items-center gap-6 m-0 p-0 list-none">
+        <li><a href="index.html" class="text-forest hover:opacity-80 font-medium no-underline">Untuk Anda</a></li>
+        <li><a href="komunitas.html" class="text-forest hover:opacity-80 font-medium no-underline">Komunitas</a></li>
+        <li><a href="inbox.html" class="text-forest hover:opacity-80 font-medium no-underline">Kotak Masuk</a></li>
+        <li><a href="profile.html" class="text-forest hover:opacity-80 font-medium no-underline">Anda</a></li>
         </ul>
-        <input class="search" type="text" placeholder="Search...">
+
+    </div>
     </nav>
-    
+
+    <div>
+        <h1>INI PROFIL</h1>
+    </div>
+
+
 </body>
 </html>
