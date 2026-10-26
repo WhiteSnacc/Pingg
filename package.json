@@ -1,6 +1,30 @@
 {
   "dependencies": {
-    "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/cli": "^4.3.3"
+  },
+  "name": "fakedit",
+  "version": "1.0.0",
+  "description": "Sebuah website berisi forum diskusi  \r Link Website: https://whitesnacc.github.io/Pingg/index.html",
+  "main": "index.js",
+  "devDependencies": {
     "tailwindcss": "^4.3.3"
+  },
+  "scripts": {
+    "build-css": "npx tailwindcss -i ./global.css -o ./src/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WhiteSnacc/Pingg.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/WhiteSnacc/Pingg/issues"
+  },
+  "homepage": "https://github.com/WhiteSnacc/Pingg#readme",
+  "allowScripts": {
+    "@parcel/watcher@2.5.1": true
   }
 }
