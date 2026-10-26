@@ -3,45 +3,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="global.css"> -->
-    <link rel="stylesheet" href="./output.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              mint: '#e6f4ea', /* Sesuaikan hex asli lo */
+              forest: '#137333',
+              crimson: '#ea4335',
+              maroon: '#a50e0e',
+            }
+          }
+        }
+      }
+    </script>
     <title>Account Profile</title>
 </head>
-<body>
-    <nav class="stick top-0 left-0 w-full bg-mint border-b-2 border-maroon z-50">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+<body class="bg-gray-100 text-gray-800">
+
+<!-- 1. TOP NAVBAR WITH FULL-WIDTH ACCORDION -->
+<nav class="sticky top-0 left-0 w-full bg-mint border-b-2 border-maroon z-40 shadow-sm relative">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+    
+    <!-- Logo -->
+    <a href="index.html" class="font-bold text-forest text-lg sm:text-xl no-underline tracking-tight shrink-0">
+      Pingg<span class="text-crimson">!</span>
+    </a>
+
+    <!-- Search Bar -->
+    <div class="flex items-center w-36 sm:max-w-75 px-3 py-1.5 border border-forest rounded-full bg-white ml-auto mr-1 sm:mr-3">
+      <input 
+        type="text" 
+        placeholder="Cari..." 
+        class="w-full bg-transparent outline-none text-sm text-slate-800 placeholder-slate-400"
+      />
+    </div>
+
+    <!-- Tombol Anda + Hamburger Menu -->
+    <button 
+      onclick="document.getElementById('mobile-accordion').classList.toggle('hidden')"
+      class="md:hidden flex items-center gap-1.5 px-3 h-8 border border-forest rounded-full bg-white text-xs font-bold text-forest hover:bg-slate-50 transition shrink-0"
+    >
+      <span class="text-crimson">Anda</span>
+      <svg class="w-4 h-4 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+
+    <!-- Desktop Navigation Links -->
+    <ul class="hidden md:flex items-center gap-6 m-0 p-0 list-none shrink-0">
+      <li><a href="index.html" class="text-forest hover:opacity-80 font-medium no-underline text-sm transition">Untuk Anda</a></li>
+      <li><a href="komunitas.html" class="text-forest hover:opacity-80 font-medium no-underline text-sm transition">Komunitas</a></li>
+      <li><a href="inbox.html" class="text-forest hover:opacity-80 font-medium no-underline text-sm transition">Kotak Masuk</a></li>
+      <li>
+        <a href="profile.html" class="text-crimson font-bold no-underline text-sm relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-crimson after:rounded-full">
+          Anda
+        </a>
+      </li>
+    </ul>
+
+  </div>
+
+  <!-- Accordion Melayang Full Width -->
+  <div id="mobile-accordion" class="hidden md:hidden absolute top-full left-0 w-full bg-mint border-b-2 border-maroon shadow-lg px-4 py-3 flex flex-col gap-1 z-50">
+    <a href="index.html" class="px-3 py-2 rounded-lg text-forest hover:bg-forest/10 font-medium no-underline text-sm transition">Untuk Anda</a>
+    <a href="komunitas.html" class="px-3 py-2 rounded-lg text-forest hover:bg-forest/10 font-medium no-underline text-sm transition">Komunitas</a>
+    <a href="inbox.html" class="px-3 py-2 rounded-lg text-forest hover:bg-forest/10 font-medium no-underline text-sm transition">Kotak Masuk</a>
+    <a href="profile.html" class="px-3 py-2 rounded-lg bg-forest/10 text-crimson font-bold no-underline text-sm transition">Anda</a>
+  </div>
+</nav>
+
+<!-- Container Utama (Grid 3/4 & 1/4) -->
+<main class="max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-4 gap-6">
+
+    <!-- AREA 3/4: Feed & Activity -->
+    <section class="md:col-span-3 space-y-4">
         
-        <div class="flex items-center gap-3">
-        <button class="md:hidden flex flex-col justify-between w-6 h-5 bg-transparent border-none cursor-pointer">
-            <span class="w-full h-[3px] bg-forest rounded"></span>
-            <span class="w-full h-[3px] bg-forest rounded"></span>
-            <span class="w-full h-[3px] bg-forest rounded"></span>
-        </button>
-        <a href="index.html" class=" font-bold text-forest text-lg no-underline outline-">Pingg<span class="text-crimson">!</span></a>
+        <!-- 1. SUB-NAV & PILLS CHANNEL CONTAINER -->
+        <div class="bg-white p-4 rounded-3xl border border-forest/20 shadow-sm space-y-3.5">
+          
+          <!-- Baris Atas: Sub-Nav Tabs & Tombol Buat Post -->
+          <div class="flex items-center justify-between gap-2 overflow-x-auto whitespace-nowrap pb-1 border-b border-slate-100">
+            <div class="flex items-center gap-1.5 shrink-0">
+              <button class="px-3.5 py-1.5 rounded-full bg-forest text-white font-bold text-xs shadow-sm transition">
+                Postingan
+              </button>
+              <button class="px-3.5 py-1.5 rounded-full text-slate-500 hover:text-forest hover:bg-mint/50 font-medium text-xs transition">
+                Arsip
+              </button>
+              <button class="px-3.5 py-1.5 rounded-full text-slate-500 hover:text-forest hover:bg-mint/50 font-medium text-xs transition">
+                Draf
+              </button>
+            </div>
+
+            <button class="shrink-0 flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-crimson hover:opacity-90 text-white font-bold text-xs shadow-sm transition active:scale-95 ml-auto">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+              </svg>
+              <span>Post Baru</span>
+            </button>
+          </div>
+
+          <!-- Baris Bawah: Pills Channel Filter -->
+          <div class="flex items-center gap-2 overflow-x-auto whitespace-nowrap py-0.5 no-scrollbar">
+            <span class="text-[11px] font-semibold text-slate-400 shrink-0 mr-1">Channel:</span>
+            <button class="shrink-0 px-3 py-1 rounded-full bg-mint border border-forest/40 text-forest font-bold text-xs shadow-2xs">
+              Semua
+            </button>
+            <button class="shrink-0 px-3 py-1 rounded-full border border-slate-200 text-slate-600 hover:border-forest hover:text-forest text-xs transition">
+              g/makananenak
+            </button>
+            <button class="shrink-0 px-3 py-1 rounded-full border border-slate-200 text-slate-600 hover:border-forest hover:text-forest text-xs transition">
+              g/teknologi
+            </button>
+            <button class="shrink-0 px-3 py-1 rounded-full border border-slate-200 text-slate-600 hover:border-forest hover:text-forest text-xs transition">
+              g/gaming
+            </button>
+            <button class="shrink-0 px-3 py-1 rounded-full border border-slate-200 text-slate-600 hover:border-forest hover:text-forest text-xs transition">
+              g/sayangortu
+            </button>
+          </div>
+
         </div>
 
-        <div class="flex items-center flex-1 max-w-[200px] sm:max-w-[300px] px-3 py-1.5 border border-forest rounded-full bg-white">
-        <input 
-            type="text" 
-            placeholder="Cari..." 
-            class="w-full bg-transparent outline-none text-sm text-slate-800 placeholder-slate-400"
-        />
+        <!-- 2. FEED POST CARD -->
+        <div class="bg-white p-5 rounded-3xl border border-forest/20 shadow-sm space-y-3 relative">
+          
+          <!-- Header Post -->
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2.5">
+              <div class="w-9 h-9 rounded-full bg-mint border border-forest flex items-center justify-center text-forest font-bold text-xs shrink-0">
+                ST
+              </div>
+              <div class="flex flex-col sm:flex-row sm:items-center gap-0.5 sm:gap-2">
+                <div class="flex items-center gap-1.5">
+                  <span class="font-bold text-slate-800 text-xs sm:text-sm">Salim Thirza</span>
+                  <span class="text-[11px] text-slate-400">@limsalim</span>
+                </div>
+                <div class="flex items-center gap-1.5 text-[11px] text-slate-400">
+                  <span class="hidden sm:inline">•</span>
+                  <span class="px-2 py-0.5 rounded-full bg-mint/60 text-forest font-semibold text-[10px] border border-forest/20">
+                    g/makananenak
+                  </span>
+                  <span>• 2j yang lalu</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Context Menu (Titik 3) -->
+            <div class="relative shrink-0">
+              <button 
+                onclick="document.getElementById('post-menu-1').classList.toggle('hidden')"
+                class="p-1.5 rounded-full text-slate-400 hover:text-forest hover:bg-mint/50 transition focus:outline-none"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+                </svg>
+              </button>
+
+              <div id="post-menu-1" class="hidden absolute right-0 top-8 w-36 bg-white border border-forest/20 rounded-2xl shadow-lg p-1.5 z-20 space-y-0.5 text-xs font-medium">
+                <button class="w-full flex items-center gap-2 px-3 py-1.5 rounded-xl text-slate-700 hover:bg-mint hover:text-forest transition text-left">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                  </svg>
+                  Edit Post
+                </button>
+                <button class="w-full flex items-center gap-2 px-3 py-1.5 rounded-xl text-slate-700 hover:bg-mint hover:text-forest transition text-left">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 012-2h10a2 2 0 012 2M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/>
+                  </svg>
+                  Arsipkan
+                </button>
+                <div class="border-t border-gray-100 my-1"></div>
+                <button class="w-full flex items-center gap-2 px-3 py-1.5 rounded-xl text-crimson hover:bg-crimson/10 font-bold transition text-left">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                  </svg>
+                  Hapus
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Content Post -->
+          <div class="space-y-2">
+            <h4 class="font-bold text-slate-800 text-sm sm:text-base leading-snug">
+              Rekomendasi Nasi Goreng Gila Paling Mantap di Kota, Bumbu Meresap Banget!
+            </h4>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Tadi sempet mampir nyobain varian baru. Porsinya gila sih melimpah banget, isian sosis sama baksonya gak pelit. Worth it banget buat makan malam pas lagi lapar berat!
+            </p>
+          </div>
+
+          <!-- Action Bar -->
+          <div class="flex items-center gap-2 pt-2 border-t border-slate-100">
+            <div class="flex items-center rounded-full bg-slate-100 border border-slate-200 p-0.5 text-xs font-semibold text-slate-600">
+              <button class="px-2.5 py-1 rounded-full hover:bg-mint hover:text-forest transition">
+                ▲ <span class="ml-1">42</span>
+              </button>
+              <span class="text-slate-300">|</span>
+              <button class="px-2 py-1 rounded-full hover:bg-crimson/10 hover:text-crimson transition">
+                ▼
+              </button>
+            </div>
+
+            <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-mint hover:text-forest border border-slate-200 text-xs font-medium text-slate-600 transition">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+              </svg>
+              <span>12 Komentar</span>
+            </button>
+
+            <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-mint hover:text-forest border border-slate-200 text-xs font-medium text-slate-600 transition ml-auto">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
+              </svg>
+              <span class="hidden sm:inline">Bagikan</span>
+            </button>
+          </div>
+
         </div>
 
-        <ul class="hidden md:flex items-center gap-6 m-0 p-0 list-none">
-        <li><a href="index.html" class="text-forest hover:opacity-80 font-medium no-underline">Untuk Anda</a></li>
-        <li><a href="komunitas.html" class="text-forest hover:opacity-80 font-medium no-underline">Komunitas</a></li>
-        <li><a href="inbox.html" class="text-forest hover:opacity-80 font-medium no-underline">Kotak Masuk</a></li>
-        <li><a href="profile.html" class="text-forest hover:opacity-80 font-medium no-underline">Anda</a></li>
-        </ul>
+    </section>
 
-    </div>
-    </nav>
+    <!-- AREA 1/4: Sidebar Settings -->
+    <aside class="md:col-span-1 w-full max-w-md mx-auto md:max-w-none">
+      <div class="sticky top-20 bg-white p-6 rounded-3xl border border-forest/20 shadow-sm space-y-5">
+        
+        <!-- Header Profil -->
+        <div class="flex flex-col items-center text-center pb-4 border-b border-gray-100">
+          <div class="relative mb-3">
+            <div class="w-20 h-20 rounded-full bg-mint border-2 border-forest flex items-center justify-center text-forest font-bold text-2xl shadow-inner">
+              ST
+            </div>
+            <button class="absolute bottom-0 right-0 p-2 bg-white border border-forest/30 rounded-full shadow-sm hover:bg-mint transition">
+              <svg class="w-3.5 h-3.5 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </button>
+          </div>
 
-    <div>
-        <h1>INI PROFIL</h1>
-    </div>
+          <h3 class="font-bold text-slate-800 text-base leading-tight">Salim Thirza</h3>
+          <p class="text-xs text-slate-500 mb-2">@limsalim</p>
+          <span class="px-3 py-1 bg-mint text-forest text-[10px] font-bold rounded-full border border-forest/30">
+            Member 2026
+          </span>
+        </div>
 
+        <!-- Form Edit -->
+        <form class="space-y-3.5" onsubmit="event.preventDefault();">
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 mb-1 pl-2">Nama Tampilan</label>
+            <input 
+              type="text" 
+              value="Salim Thirza" 
+              class="w-full px-4 py-2 text-xs border border-forest/30 rounded-full outline-none focus:border-forest focus:ring-1 focus:ring-forest transition bg-slate-50/50 focus:bg-white"
+            />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 mb-1 pl-2">Username</label>
+            <input 
+              type="text" 
+              value="limsalim" 
+              class="w-full px-4 py-2 text-xs border border-forest/30 rounded-full outline-none focus:border-forest focus:ring-1 focus:ring-forest transition bg-slate-50/50 focus:bg-white"
+            />
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 mb-1 pl-2">Bio</label>
+            <textarea 
+              rows="2" 
+              class="w-full px-4 py-2.5 text-xs border border-forest/30 rounded-2xl outline-none focus:border-forest focus:ring-1 focus:ring-forest transition bg-slate-50/50 focus:bg-white resize-none"
+              placeholder="Tulis bio singkat..."
+            >Master of Productive Procrastinator</textarea>
+          </div>
+
+          <!-- Toggle Options -->
+          <div class="pt-2 border-t border-gray-100 space-y-2 px-1">
+            <label class="flex items-center justify-between text-xs text-slate-600 cursor-pointer">
+              <span>Status Online</span>
+              <input type="checkbox" checked class="accent-forest cursor-pointer w-4 h-4 rounded">
+            </label>
+            <label class="flex items-center justify-between text-xs text-slate-600 cursor-pointer">
+              <span>Sembunyikan Email</span>
+              <input type="checkbox" class="accent-forest cursor-pointer w-4 h-4 rounded">
+            </label>
+          </div>
+
+          <!-- Submit Button -->
+          <button 
+            type="submit" 
+            class="w-full py-2.5 mt-2 bg-forest hover:bg-forest/90 text-white font-bold text-xs rounded-full transition shadow-sm active:scale-95"
+          >
+            Simpan Perubahan
+          </button>
+        </form>
+
+      </div>
+    </aside>
+
+</main>
 
 </body>
 </html>
