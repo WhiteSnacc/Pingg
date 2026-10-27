@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,46 +8,165 @@
     <link rel="stylesheet" href="./nav.css">
     <script src="./script.js" defer></script>
 </head>
-<body>
+<body class="min-h-screen bg-slate-50 text-slate-800">
     <nav class="site-nav sticky top-0 left-0 w-full bg-mint border-b-2 border-maroon z-50">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-        
-        <div class="flex items-center gap-3">
-        <button type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-accordion" aria-label="Buka menu navigasi" class="md:hidden flex flex-col justify-between w-6 h-5 bg-transparent border-none cursor-pointer">
-            <span class="w-full h-[3px] bg-forest rounded"></span>
-            <span class="w-full h-[3px] bg-forest rounded"></span>
-            <span class="w-full h-[3px] bg-forest rounded"></span>
-        </button>
-        <a href="index.html" class=" font-bold text-forest text-lg no-underline outline-">Pingg<span class="text-crimson">!</span></a>
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <button type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-accordion" aria-label="Buka menu navigasi" class="md:hidden flex flex-col justify-between w-6 h-5 bg-transparent border-none cursor-pointer">
+                    <span class="w-full h-[3px] bg-forest rounded"></span>
+                    <span class="w-full h-[3px] bg-forest rounded"></span>
+                    <span class="w-full h-[3px] bg-forest rounded"></span>
+                </button>
+                <a href="home.html" class="font-bold text-forest text-lg no-underline">Pingg<span class="text-crimson">!</span></a>
+            </div>
+            <div class="flex items-center flex-1 max-w-[200px] sm:max-w-[300px] px-3 py-1.5 border border-forest rounded-full bg-white">
+                <input type="search" aria-label="Cari komunitas" placeholder="Cari komunitas..." class="w-full bg-transparent outline-none text-sm text-slate-800 placeholder-slate-400">
+            </div>
+            <ul class="hidden md:flex items-center gap-6 m-0 p-0 list-none">
+                <li><a href="home.html" class="nav-link">Untuk Anda</a></li>
+                <li><a href="community.html" class="nav-link" aria-current="page">Komunitas</a></li>
+                <li><a href="inbox.html" class="nav-link">Kotak Masuk</a></li>
+                <li><a href="profile.html" class="nav-link">Anda</a></li>
+            </ul>
         </div>
-
-        <div class="flex items-center flex-1 max-w-[200px] sm:max-w-[300px] px-3 py-1.5 border border-forest rounded-full bg-white">
-        <input 
-            type="text" 
-            placeholder="Cari..." 
-            class="w-full bg-transparent outline-none text-sm text-slate-800 placeholder-slate-400"
-        />
+        <div id="mobile-accordion" class="mobile-accordion hidden md:hidden">
+            <a href="home.html" class="nav-link">Untuk Anda</a>
+            <a href="community.html" class="nav-link" aria-current="page">Komunitas</a>
+            <a href="inbox.html" class="nav-link">Kotak Masuk</a>
+            <a href="profile.html" class="nav-link">Anda</a>
         </div>
-
-        <ul class="hidden md:flex items-center gap-6 m-0 p-0 list-none">
-        <li><a href="home.html" class="nav-link">Untuk Anda</a></li>
-        <li><a href="community.html" class="nav-link" aria-current="page">Komunitas</a></li>
-        <li><a href="inbox.html" class="nav-link">Kotak Masuk</a></li>
-        <li><a href="profile.html" class="nav-link">Anda</a></li>
-        </ul>
-
-    </div>
-    <div id="mobile-accordion" class="mobile-accordion hidden md:hidden">
-        <a href="home.html" class="nav-link">Untuk Anda</a>
-        <a href="community.html" class="nav-link" aria-current="page">Komunitas</a>
-        <a href="inbox.html" class="nav-link">Kotak Masuk</a>
-        <a href="profile.html" class="nav-link">Anda</a>
-    </div>
     </nav>
-    <div class="page-content">
-        <h1>INI KOMUNITAS</h1>
-    </div>
 
-    
+    <main class="page-content max-w-7xl mx-auto px-4 py-6">
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-[250px_minmax(0,1fr)]">
+            <aside class="hidden lg:block">
+                <nav aria-label="Menu komunitas" class="sticky top-24 space-y-5">
+                    <section class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                        <h2 class="px-3 pb-2 text-xs font-bold uppercase tracking-wider text-slate-400">Jelajahi</h2>
+                        <a href="#semua" class="flex items-center gap-3 rounded-xl bg-mint px-3 py-2.5 text-sm font-bold text-forest">
+                            <span class="w-5 text-center" aria-hidden="true">⌂</span> Semua komunitas
+                        </a>
+                        <a href="#populer" class="mt-1 flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-forest">
+                            <span class="w-5 text-center" aria-hidden="true">↗</span> Populer
+                        </a>
+                        <a href="#baru" class="mt-1 flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-forest">
+                            <span class="w-5 text-center" aria-hidden="true">✦</span> Komunitas baru
+                        </a>
+                    </section>
+                    <section class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                        <h2 class="px-3 pb-2 text-xs font-bold uppercase tracking-wider text-slate-400">Kategori</h2>
+                        <a href="#teknologi" class="block rounded-xl px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-forest">💻 Teknologi</a>
+                        <a href="#gaming" class="block rounded-xl px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-forest">🎮 Gaming</a>
+                        <a href="#kuliner" class="block rounded-xl px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-forest">🍜 Kuliner</a>
+                        <a href="#kampus" class="block rounded-xl px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-forest">🎓 Kampus</a>
+                        <a href="#hobi" class="block rounded-xl px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 hover:text-forest">🎨 Hobi & kreativitas</a>
+                    </section>
+                    <a href="#buat-komunitas" class="flex w-full items-center justify-center gap-2 rounded-full border border-forest px-4 py-2.5 text-sm font-bold text-forest transition hover:bg-mint">
+                        <span aria-hidden="true">＋</span> Buat komunitas
+                    </a>
+                </nav>
+            </aside>
+
+            <section id="semua" class="min-w-0 space-y-5" aria-labelledby="community-heading">
+                <header class="flex flex-col gap-4 rounded-3xl border border-forest/20 bg-white p-5 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:p-7">
+                    <div>
+                        <p class="text-xs font-bold uppercase tracking-wider text-forest">Temukan ruangmu</p>
+                        <h1 id="community-heading" class="mt-1 text-2xl font-bold text-slate-800">Jelajahi komunitas</h1>
+                        <p class="mt-1 text-sm text-slate-500">Temukan orang-orang yang tertarik dengan hal yang sama.</p>
+                    </div>
+                    <button id="buat-komunitas" type="button" class="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-forest px-5 py-2.5 text-sm font-bold text-white transition hover:bg-green-700">
+                        <span aria-hidden="true">＋</span> Buat komunitas
+                    </button>
+                </header>
+
+                <div class="flex items-center justify-between gap-3 border-b border-slate-200 px-1 pb-3">
+                    <div class="flex items-center gap-1" role="tablist" aria-label="Urutkan komunitas">
+                        <button type="button" role="tab" aria-selected="true" class="rounded-full bg-forest px-4 py-2 text-xs font-bold text-white">Untukmu</button>
+                        <button type="button" role="tab" aria-selected="false" class="rounded-full px-4 py-2 text-xs font-semibold text-slate-500 transition hover:bg-mint hover:text-forest">Populer</button>
+                        <button type="button" role="tab" aria-selected="false" class="hidden rounded-full px-4 py-2 text-xs font-semibold text-slate-500 transition hover:bg-mint hover:text-forest sm:inline-flex">Terbaru</button>
+                    </div>
+                    <span class="text-xs text-slate-400">Komunitas pilihan</span>
+                </div>
+
+                <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                    <article id="kuliner" class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-forest/40 hover:shadow-md">
+                        <div class="flex items-start gap-3">
+                            <img src="./assets/community-food-tech.jpg" alt="Foto profil komunitas makananenak" class="h-12 w-12 shrink-0 rounded-2xl object-cover">
+                            <div class="min-w-0 flex-1">
+                                <h2 class="font-bold text-slate-800">makananenak</h2>
+                                <p class="text-xs text-slate-400">p/makananenak</p>
+                            </div>
+                            <button type="button" data-join-community class="shrink-0 rounded-full border border-forest px-4 py-1.5 text-xs font-bold text-forest transition hover:bg-mint" aria-pressed="false">Gabung</button>
+                        </div>
+                        <p class="mt-4 text-sm leading-relaxed text-slate-600">Rekomendasi tempat makan, resep andalan, dan cerita kuliner dari sekitar kita.</p>
+                        <div class="mt-4 flex items-center gap-2 text-xs text-slate-400"><span class="font-bold text-slate-700">12,4 rb</span> anggota <span>·</span><span class="text-forest">● 320 online</span></div>
+                    </article>
+
+                    <article id="teknologi" class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-forest/40 hover:shadow-md">
+                        <div class="flex items-start gap-3">
+                            <img src="https://bse-pwt.telkomuniversity.ac.id/wp-content/uploads/2025/06/download-1.webp" alt="Foto profil komunitas teknologi" class="h-12 w-12 shrink-0 rounded-2xl object-cover">
+                            <div class="min-w-0 flex-1"><h2 class="font-bold text-slate-800">teknologi</h2><p class="text-xs text-slate-400">p/teknologi</p></div>
+                            <button type="button" data-join-community class="shrink-0 rounded-full border border-forest px-4 py-1.5 text-xs font-bold text-forest transition hover:bg-mint" aria-pressed="false">Gabung</button>
+                        </div>
+                        <p class="mt-4 text-sm leading-relaxed text-slate-600">Ngobrol soal coding, gadget, AI, dan perkembangan teknologi terbaru.</p>
+                        <div class="mt-4 flex items-center gap-2 text-xs text-slate-400"><span class="font-bold text-slate-700">9,8 rb</span> anggota <span>·</span><span class="text-forest">● 184 online</span></div>
+                    </article>
+
+                    <article id="gaming" class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-forest/40 hover:shadow-md">
+                        <div class="flex items-start gap-3">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBtpB6u5_u9tofFGJxpXQor9hBs7gXKSJfH-xKvTZrcQ&amp;s=10" alt="Foto profil komunitas gaming" class="h-12 w-12 shrink-0 rounded-2xl object-cover">
+                            <div class="min-w-0 flex-1"><h2 class="font-bold text-slate-800">gaming</h2><p class="text-xs text-slate-400">p/gaming</p></div>
+                            <button type="button" data-join-community class="shrink-0 rounded-full border border-forest px-4 py-1.5 text-xs font-bold text-forest transition hover:bg-mint" aria-pressed="false">Gabung</button>
+                        </div>
+                        <p class="mt-4 text-sm leading-relaxed text-slate-600">Cari teman mabar, bahas game favorit, dan bagikan momen seru bermain.</p>
+                        <div class="mt-4 flex items-center gap-2 text-xs text-slate-400"><span class="font-bold text-slate-700">8,2 rb</span> anggota <span>·</span><span class="text-forest">● 510 online</span></div>
+                    </article>
+
+                    <article id="kampus" class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-forest/40 hover:shadow-md">
+                        <div class="flex items-start gap-3">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6d-2dvzLoj5wSF2gF7SdrvccjP-rLgfCGNL6e_ndvUw&amp;s=10" alt="Foto profil komunitas USU" class="h-12 w-12 shrink-0 rounded-2xl object-cover">
+                            <div class="min-w-0 flex-1"><h2 class="font-bold text-slate-800">USU</h2><p class="text-xs text-slate-400">p/USU</p></div>
+                            <button type="button" data-join-community class="shrink-0 rounded-full border border-forest px-4 py-1.5 text-xs font-bold text-forest transition hover:bg-mint" aria-pressed="false">Gabung</button>
+                        </div>
+                        <p class="mt-4 text-sm leading-relaxed text-slate-600">Cerita kehidupan kampus, tips belajar, dan pengalaman jadi mahasiswa.</p>
+                        <div class="mt-4 flex items-center gap-2 text-xs text-slate-400"><span class="font-bold text-slate-700">6,5 rb</span> anggota <span>·</span><span class="text-forest">● 96 online</span></div>
+                    </article>
+
+                    <article id="hobi" class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-forest/40 hover:shadow-md">
+                        <div class="flex items-start gap-3">
+                            <img src="https://blue.kumparan.com/image/upload/fl_progressive,fl_lossy,c_fill,f_auto,q_auto:best,w_640/v1634025439/01h42sgf6t50gpw3vfw9g7tf0c.jpg" alt="Foto profil komunitas senilukis" class="h-12 w-12 shrink-0 rounded-2xl object-cover">
+                            <div class="min-w-0 flex-1"><h2 class="font-bold text-slate-800">senilukis</h2><p class="text-xs text-slate-400">p/senilukis</p></div>
+                            <button type="button" data-join-community class="shrink-0 rounded-full border border-forest px-4 py-1.5 text-xs font-bold text-forest transition hover:bg-mint" aria-pressed="false">Gabung</button>
+                        </div>
+                        <p class="mt-4 text-sm leading-relaxed text-slate-600">Tempat berbagi karya, proses kreatif, dan inspirasi untuk berkarya.</p>
+                        <div class="mt-4 flex items-center gap-2 text-xs text-slate-400"><span class="font-bold text-slate-700">4,1 rb</span> anggota <span>·</span><span class="text-forest">● 72 online</span></div>
+                    </article>
+
+                    <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-forest/40 hover:shadow-md">
+                        <div class="flex items-start gap-3">
+                            <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Animal_diversity_b.png/330px-Animal_diversity_b.png?utm_source=id.wikipedia.org&amp;utm_campaign=parser&amp;utm_content=thumbnail" alt="Foto profil komunitas hewan" class="h-12 w-12 shrink-0 rounded-2xl object-cover">
+                            <div class="min-w-0 flex-1"><h2 class="font-bold text-slate-800">hewan</h2><p class="text-xs text-slate-400">p/hewan</p></div>
+                            <button type="button" data-join-community class="shrink-0 rounded-full border border-forest px-4 py-1.5 text-xs font-bold text-forest transition hover:bg-mint" aria-pressed="false">Gabung</button>
+                        </div>
+                        <p class="mt-4 text-sm leading-relaxed text-slate-600">Berbagi cerita, tips perawatan, dan foto teman berbulu kesayangan.</p>
+                        <div class="mt-4 flex items-center gap-2 text-xs text-slate-400"><span class="font-bold text-slate-700">3,7 rb</span> anggota <span>·</span><span class="text-forest">● 63 online</span></div>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <script>
+        document.querySelectorAll("[data-join-community]").forEach((button) => {
+            button.addEventListener("click", () => {
+                const joined = button.getAttribute("aria-pressed") === "true";
+                button.setAttribute("aria-pressed", String(!joined));
+                button.textContent = joined ? "Gabung" : "✓ Bergabung";
+                button.classList.toggle("bg-forest", !joined);
+                button.classList.toggle("text-white", !joined);
+                button.classList.toggle("text-forest", joined);
+            });
+        });
+    </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,47 +8,44 @@
     <link rel="stylesheet" href="./nav.css">
     <script src="./script.js" defer></script>
 </head>
-<body>
+<body class="min-h-screen bg-slate-50 text-slate-800">
     <nav class="site-nav sticky top-0 left-0 w-full bg-mint border-b-2 border-maroon z-50">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
-        
-        <div class="flex items-center gap-3">
-        <button type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-accordion" aria-label="Buka menu navigasi" class="md:hidden flex flex-col justify-between w-6 h-5 bg-transparent border-none cursor-pointer">
-            <span class="w-full h-[3px] bg-forest rounded"></span>
-            <span class="w-full h-[3px] bg-forest rounded"></span>
-            <span class="w-full h-[3px] bg-forest rounded"></span>
-        </button>
-        <a href="home.html" class=" font-bold text-forest text-lg no-underline outline-">Pingg<span class="text-crimson">!</span></a>
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <button type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-accordion" aria-label="Buka menu navigasi" class="md:hidden flex flex-col justify-between w-6 h-5 bg-transparent border-none cursor-pointer">
+                    <span class="w-full h-[3px] bg-forest rounded"></span>
+                    <span class="w-full h-[3px] bg-forest rounded"></span>
+                    <span class="w-full h-[3px] bg-forest rounded"></span>
+                </button>
+                <a href="home.html" class="font-bold text-forest text-lg no-underline">Pingg<span class="text-crimson">!</span></a>
+            </div>
+            <div class="flex items-center flex-1 max-w-[200px] sm:max-w-[300px] px-3 py-1.5 border border-forest rounded-full bg-white">
+                <input type="search" aria-label="Cari" placeholder="Cari..." class="w-full bg-transparent outline-none text-sm text-slate-800 placeholder-slate-400">
+            </div>
+            <ul class="hidden md:flex items-center gap-6 m-0 p-0 list-none">
+                <li><a href="home.html" class="nav-link">Untuk Anda</a></li>
+                <li><a href="community.html" class="nav-link">Komunitas</a></li>
+                <li><a href="inbox.html" class="nav-link" aria-current="page">Kotak Masuk</a></li>
+                <li><a href="profile.html" class="nav-link">Anda</a></li>
+            </ul>
         </div>
-
-        <div class="flex items-center flex-1 max-w-[200px] sm:max-w-[300px] px-3 py-1.5 border border-forest rounded-full bg-white">
-        <input 
-            type="text" 
-            placeholder="Cari..." 
-            class="w-full bg-transparent outline-none text-sm text-slate-800 placeholder-slate-400"
-        />
+        <div id="mobile-accordion" class="mobile-accordion hidden md:hidden">
+            <a href="home.html" class="nav-link">Untuk Anda</a>
+            <a href="community.html" class="nav-link">Komunitas</a>
+            <a href="inbox.html" class="nav-link" aria-current="page">Kotak Masuk</a>
+            <a href="profile.html" class="nav-link">Anda</a>
         </div>
-
-        <ul class="hidden md:flex items-center gap-6 m-0 p-0 list-none">
-        <li><a href="home.html" class="nav-link">Untuk Anda</a></li>
-        <li><a href="community.html" class="nav-link">Komunitas</a></li>
-        <li><a href="inbox.html" class="nav-link" aria-current="page">Kotak Masuk</a></li>
-        <li><a href="profile.html" class="nav-link">Anda</a></li>
-        </ul>
-
-    </div>
-    <div id="mobile-accordion" class="mobile-accordion hidden md:hidden">
-        <a href="home.html" class="nav-link">Untuk Anda</a>
-        <a href="community.html" class="nav-link">Komunitas</a>
-        <a href="inbox.html" class="nav-link" aria-current="page">Kotak Masuk</a>
-        <a href="profile.html" class="nav-link">Anda</a>
-    </div>
     </nav>
 
-    <div class="page-content">
-        <h1>INI INBOX</h1>
-    </div>
-
-    
+    <main class="page-content max-w-5xl mx-auto px-4 py-8">
+        <section class="min-h-[65vh] flex items-center justify-center" aria-labelledby="inbox-heading">
+            <div class="w-full max-w-lg rounded-3xl border border-forest/20 bg-white px-6 py-12 sm:px-12 text-center shadow-sm">
+                <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full bg-mint text-3xl text-forest" aria-hidden="true">✉</div>
+                <h1 id="inbox-heading" class="text-xl sm:text-2xl font-bold text-slate-800">Tidak ada kotak masuk</h1>
+                <p class="mt-2 text-sm leading-relaxed text-slate-500">Belum ada pesan atau notifikasi untukmu. Kalau ada yang baru, nanti akan muncul di sini.</p>
+                <a href="home.html" class="mt-6 inline-flex items-center justify-center rounded-full bg-forest px-5 py-2.5 text-sm font-bold text-white transition hover:bg-green-700">Jelajahi feed</a>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
