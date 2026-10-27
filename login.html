@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Pingg!</title>
+    <link rel="stylesheet" href="src/output.css">
+    <script src="signin.js"></script>
+</head>
+<body class="bg-forest h-screen flex justify-center items-center">
+    <form class="bg-mint w-fit p-8 rounded-2xl border border-forest/20 shadow-2xl">
+        <h1 class="text-forest font-bold text-center text-4xl mb-4">LOG IN</h1>
+        <p class="text-gray-600 text-center text-sm my-4">Selamat Datang di Pingg!<br>Mohon isi form untuk masuk ke dalam website!</p>
+        <label for="nama" class="font-medium text-green-900">Nama : </label>
+        <input type="text" id="nama" placeholder="Masukkan nama anda.."
+        class="bg-white border border-gray-400 rounded-lg px-2 py-1 w-full placeholder:text-gray-400 mb-2"><br>
+
+        <label for="email" class="font-medium text-green-900">Email: </label>
+        <input type="email" id="email" placeholder="Masukkan email anda.."
+        class="bg-white border border-gray-400 rounded-lg px-2 py-1 w-full placeholder:text-gray-400 mb-2"><br>
+
+        <label for="password" class="font-medium text-green-900">Password: </label>
+        <input type="password" id="password" placeholder="Masukkan password anda.."
+        class="bg-white border border-gray-400 rounded-lg px-2 py-1 w-full placeholder:text-gray-400 mb-2"><br>
+
+        <button type="submit" class="w-full text-center bg-forest font-medium p-2 text-white rounded-2xl my-2">Submit</button>
+        <p>Belum punya akun? <a href="signin.html" class="text-blue-500">Buat akun</a></p>
+    </form>
+</body>
+</html>
