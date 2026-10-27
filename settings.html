@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings - Pingg!</title>
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              DEFAULT: '#FF4500',
+              hover: '#E03D00'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-neutral-950 text-neutral-100 min-h-screen font-sans antialiased">
+
+  <!-- Main Container -->
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <!-- Header Page -->
+    <div class="flex items-center justify-between border-b border-neutral-800 pb-5 mb-6">
+      <div>
+        <h1 class="text-2xl font-bold tracking-tight text-white">User Settings</h1>
+        <p class="text-sm text-neutral-400">Kelola akun, profil, dan preferensi akun Pingg! milikmu.</p>
+      </div>
+      <a href="home.html" class="px-4 py-2 text-sm font-medium bg-neutral-800 hover:bg-neutral-700 text-neutral-200 rounded-lg transition-colors">
+        ← Kembali ke Home
+      </a>
+    </div>
+
+    <!-- Layout 2 Kolom -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      
+      <!-- Tab Navigation Sidebar -->
+      <nav class="space-y-1">
+        <button onclick="switchTab('account')" id="tab-account" class="tab-btn w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-colors bg-neutral-800 text-white">
+          Account
+        </button>
+        <button onclick="switchTab('profile')" id="tab-profile" class="tab-btn w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium text-neutral-400 hover:text-white hover:bg-neutral-900 transition-colors">
+          Profile
+        </button>
+        <button onclick="switchTab('preferences')" id="tab-preferences" class="tab-btn w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium text-neutral-400 hover:text-white hover:bg-neutral-900 transition-colors">
+          Feed Preferences
+        </button>
+        <button onclick="switchTab('notifications')" id="tab-notifications" class="tab-btn w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium text-neutral-400 hover:text-white hover:bg-neutral-900 transition-colors">
+          Notifications
+        </button>
+      </nav>
+
+      <!-- Content Area -->
+      <main class="md:col-span-3 bg-neutral-900 border border-neutral-800 rounded-xl p-6">
+        
+        <!-- Tab 1: Account -->
+        <section id="content-account" class="tab-content space-y-6">
+          <h2 class="text-xl font-semibold border-b border-neutral-800 pb-3 text-white">Account Settings</h2>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-neutral-300 mb-1">Email Address</label>
+              <input type="email" value="user@students.usu.ac.id" class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-3 py-2 text-sm text-neutral-200 focus:outline-none focus:border-brand">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-neutral-300 mb-1">Change Password</label>
+              <input type="password" placeholder="New Password" class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-3 py-2 text-sm text-neutral-200 focus:outline-none focus:border-brand mb-2">
+              <input type="password" placeholder="Confirm New Password" class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-3 py-2 text-sm text-neutral-200 focus:outline-none focus:border-brand">
+            </div>
+          </div>
+        </section>
+
+        <!-- Tab 2: Profile -->
+        <section id="content-profile" class="tab-content hidden space-y-6">
+          <h2 class="text-xl font-semibold border-b border-neutral-800 pb-3 text-white">Profile Information</h2>
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-neutral-300 mb-1">Display Name</label>
+              <input type="text" value="Rio Sianipar" class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-3 py-2 text-sm text-neutral-200 focus:outline-none focus:border-brand">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-neutral-300 mb-1">Bio</label>
+              <textarea rows="3" class="w-full bg-neutral-800 border border-neutral-700 rounded-lg px-3 py-2 text-sm text-neutral-200 focus:outline-none focus:border-brand">Anak Ilmu Komputer USU | Frontend Dev</textarea>
+            </div>
+          </div>
+        </section>
+
+        <!-- Tab 3: Preferences -->
+        <section id="content-preferences" class="tab-content hidden space-y-6">
+          <h2 class="text-xl font-semibold border-b border-neutral-800 pb-3 text-white">Feed Preferences</h2>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="font-medium text-sm text-neutral-200">Adult content (NSFW)</p>
+                <p class="text-xs text-neutral-400">Tampilkan postingan berlabel NSFW di beranda.</p>
+              </div>
+              <input type="checkbox" class="h-4 w-4 rounded accent-brand">
+            </div>
+          </div>
+        </section>
+
+        <!-- Tab 4: Notifications -->
+        <section id="content-notifications" class="tab-content hidden space-y-6">
+          <h2 class="text-xl font-semibold border-b border-neutral-800 pb-3 text-white">Notification Settings</h2>
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="font-medium text-sm text-neutral-200">Email Notifications</p>
+                <p class="text-xs text-neutral-400">Terima pemberitahuan lewat email.</p>
+              </div>
+              <input type="checkbox" checked class="h-4 w-4 rounded accent-brand">
+            </div>
+          </div>
+        </section>
+
+        <!-- Save Button -->
+        <div class="mt-8 pt-4 border-t border-neutral-800 flex justify-end">
+          <button type="button" onclick="alert('Pengaturan berhasil disimpan!')" class="px-5 py-2 bg-brand hover:bg-brand-hover text-white text-sm font-medium rounded-lg transition-colors">
+            Save Changes
+          </button>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Script Switch Tab -->
+  <script>
+    function switchTab(tabName) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-neutral-800', 'text-white');
+        btn.classList.add('text-neutral-400', 'hover:text-white', 'hover:bg-neutral-900');
+      });
+      document.getElementById('content-' + tabName).classList.remove('hidden');
+      const activeBtn = document.getElementById('tab-' + tabName);
+      activeBtn.classList.add('bg-neutral-800', 'text-white');
+      activeBtn.classList.remove('text-neutral-400', 'hover:text-white', 'hover:bg-neutral-900');
+    }
+  </script>
+</body>
+</html>
