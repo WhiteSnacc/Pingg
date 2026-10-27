@@ -41,6 +41,27 @@ document.querySelectorAll(".mobile-accordion a").forEach((link) => {
   });
 });
 
+document.querySelectorAll("[data-post-url]").forEach((post) => {
+  const openPost = () => {
+    const destination = post.dataset.postUrl;
+    if (!destination) {
+      console.error("The post destination is missing.");
+      return;
+    }
+
+    window.location.assign(destination);
+  };
+
+  post.addEventListener("click", (event) => {
+    if (event.target instanceof Element && event.target.closest("a, button, input, textarea, select")) {
+      return;
+    }
+
+    openPost();
+  });
+
+});
+
 document.querySelectorAll("nav a[href]").forEach((link) => {
   link.addEventListener("click", (event) => {
     if (
