@@ -3,31 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              mint: '#e6f4ea', /* Sesuaikan hex asli lo */
-              forest: '#137333',
-              crimson: '#ea4335',
-              maroon: '#a50e0e',
-            }
-          }
-        }
-      }
-    </script>
-    <title>Account Profile</title>
+    <title>Anda - Pingg!</title>
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="stylesheet" href="./nav.css">
+    <script src="./script.js" defer></script>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
 <!-- 1. TOP NAVBAR WITH FULL-WIDTH ACCORDION -->
-<nav class="sticky top-0 left-0 w-full bg-mint border-b-2 border-maroon z-40 shadow-sm relative">
+<nav class="site-nav sticky top-0 left-0 w-full bg-mint border-b-2 border-maroon z-40 shadow-sm relative">
   <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
     
     <!-- Logo -->
-    <a href="index.html" class="font-bold text-forest text-lg sm:text-xl no-underline tracking-tight shrink-0">
+    <a href="home.html" class="font-bold text-forest text-lg sm:text-xl no-underline tracking-tight shrink-0">
       Pingg<span class="text-crimson">!</span>
     </a>
 
@@ -42,7 +30,11 @@
 
     <!-- Tombol Anda + Hamburger Menu -->
     <button 
-      onclick="document.getElementById('mobile-accordion').classList.toggle('hidden')"
+      type="button"
+      data-menu-toggle
+      aria-expanded="false"
+      aria-controls="mobile-accordion"
+      aria-label="Buka menu navigasi"
       class="md:hidden flex items-center gap-1.5 px-3 h-8 border border-forest rounded-full bg-white text-xs font-bold text-forest hover:bg-slate-50 transition shrink-0"
     >
       <span class="text-crimson">Anda</span>
@@ -53,11 +45,11 @@
 
     <!-- Desktop Navigation Links -->
     <ul class="hidden md:flex items-center gap-6 m-0 p-0 list-none shrink-0">
-      <li><a href="index.html" class="text-forest hover:opacity-80 font-medium no-underline text-sm transition">Untuk Anda</a></li>
-      <li><a href="komunitas.html" class="text-forest hover:opacity-80 font-medium no-underline text-sm transition">Komunitas</a></li>
-      <li><a href="inbox.html" class="text-forest hover:opacity-80 font-medium no-underline text-sm transition">Kotak Masuk</a></li>
+      <li><a href="home.html" class="nav-link text-sm">Untuk Anda</a></li>
+      <li><a href="community.html" class="nav-link text-sm">Komunitas</a></li>
+      <li><a href="inbox.html" class="nav-link text-sm">Kotak Masuk</a></li>
       <li>
-        <a href="profile.html" class="text-crimson font-bold no-underline text-sm relative after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-crimson after:rounded-full">
+        <a href="profile.html" class="nav-link text-sm" aria-current="page">
           Anda
         </a>
       </li>
@@ -66,16 +58,16 @@
   </div>
 
   <!-- Accordion Melayang Full Width -->
-  <div id="mobile-accordion" class="hidden md:hidden absolute top-full left-0 w-full bg-mint border-b-2 border-maroon shadow-lg px-4 py-3 flex flex-col gap-1 z-50">
-    <a href="index.html" class="px-3 py-2 rounded-lg text-forest hover:bg-forest/10 font-medium no-underline text-sm transition">Untuk Anda</a>
-    <a href="komunitas.html" class="px-3 py-2 rounded-lg text-forest hover:bg-forest/10 font-medium no-underline text-sm transition">Komunitas</a>
-    <a href="inbox.html" class="px-3 py-2 rounded-lg text-forest hover:bg-forest/10 font-medium no-underline text-sm transition">Kotak Masuk</a>
-    <a href="profile.html" class="px-3 py-2 rounded-lg bg-forest/10 text-crimson font-bold no-underline text-sm transition">Anda</a>
+  <div id="mobile-accordion" class="mobile-accordion hidden md:hidden">
+    <a href="home.html" class="nav-link text-sm">Untuk Anda</a>
+    <a href="community.html" class="nav-link text-sm">Komunitas</a>
+    <a href="inbox.html" class="nav-link text-sm">Kotak Masuk</a>
+    <a href="profile.html" class="nav-link text-sm" aria-current="page">Anda</a>
   </div>
 </nav>
 
 <!-- Container Utama (Grid 3/4 & 1/4) -->
-<main class="max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-4 gap-6">
+<main class="page-content max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-4 gap-6">
 
     <!-- AREA 3/4: Feed & Activity -->
     <section class="md:col-span-3 space-y-4">

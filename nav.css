@@ -1,0 +1,142 @@
+.nav-link[aria-current="page"]::after {
+  view-transition-name: nav-active-indicator;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}
+
+.site-nav {
+  position: sticky;
+}
+
+.nav-link {
+  position: relative;
+  color: #178549;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 160ms ease, opacity 160ms ease;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
+}
+
+.nav-link[aria-current="page"] {
+  color: #dc143c;
+  font-weight: 700;
+}
+
+.nav-link[aria-current="page"]::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.4rem;
+  left: 0;
+  height: 2px;
+  border-radius: 9999px;
+  background: currentColor;
+  content: "";
+}
+
+.mobile-accordion {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 50;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  flex-direction: column;
+  gap: 0.25rem;
+  background: #e8fff4;
+  border-bottom: 2px solid #701414;
+  box-shadow: 0 8px 16px rgb(0 0 0 / 12%);
+}
+
+.mobile-accordion:not(.hidden) {
+  display: flex;
+}
+
+.mobile-accordion.hidden {
+  display: none;
+}
+
+.mobile-accordion .nav-link {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.mobile-accordion .nav-link[aria-current="page"] {
+  background: rgb(23 133 73 / 10%);
+}
+
+.mobile-accordion .nav-link::after {
+  content: none;
+}
+
+@keyframes nav-enter-from-right {
+  from {
+    transform: translateX(32px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes nav-enter-from-left {
+  from {
+    transform: translateX(-32px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes nav-leave-to-left {
+  to {
+    transform: translateX(-32px);
+  }
+}
+
+@keyframes nav-leave-to-right {
+  to {
+    transform: translateX(32px);
+  }
+}
+
+.page-content.nav-page-enter-from-right {
+  animation: nav-enter-from-right 260ms ease-out both;
+}
+
+.page-content.nav-page-enter-from-left {
+  animation: nav-enter-from-left 260ms ease-out both;
+}
+
+.page-content.nav-page-leave-to-left {
+  animation: nav-leave-to-left 180ms ease-in both;
+}
+
+.page-content.nav-page-leave-to-right {
+  animation: nav-leave-to-right 180ms ease-in both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-content.nav-page-enter-from-right,
+  .page-content.nav-page-enter-from-left,
+  .page-content.nav-page-leave-to-left,
+  .page-content.nav-page-leave-to-right {
+    animation: none;
+  }
+}
+
+@media (min-width: 48rem) {
+  .site-nav .mobile-accordion:not(.hidden) {
+    display: none;
+  }
+}
