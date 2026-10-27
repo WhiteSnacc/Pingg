@@ -28,11 +28,11 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install Tailwind
-        run: npm install -D tailwindcss
+      - name: Install dependencies
+        run: npm ci
 
       - name: Build Tailwind CSS
-        run: npx tailwindcss -i ./src/input.css -o ./src/output.css --minify
+        run: npm run build-css -- --minify
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
