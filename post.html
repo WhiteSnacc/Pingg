@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#e8fff4">
+    <title>Rekomendasi Nasi Goreng Gila - Pingg!</title>
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="stylesheet" href="./nav.css">
+    <script src="./script.js" defer></script>
+</head>
+<body class="min-h-screen bg-slate-50 text-slate-800">
+    <nav class="site-nav sticky top-0 left-0 w-full bg-mint border-b-2 border-maroon z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <button
+                    type="button"
+                    data-menu-toggle
+                    aria-expanded="false"
+                    aria-controls="mobile-accordion"
+                    aria-label="Buka menu navigasi"
+                    class="md:hidden flex flex-col justify-between w-6 h-5 bg-transparent border-none cursor-pointer"
+                >
+                    <span class="w-full h-0.75 bg-forest rounded"></span>
+                    <span class="w-full h-0.75 bg-forest rounded"></span>
+                    <span class="w-full h-0.75 bg-forest rounded"></span>
+                </button>
+                <a href="home.html" class="font-bold text-forest text-lg no-underline">Pingg<span class="text-crimson">!</span></a>
+            </div>
+
+            <div class="flex items-center flex-1 max-w-50 sm:max-w-75 px-3 py-1.5 border border-forest rounded-full bg-white">
+                <input type="search" aria-label="Cari" placeholder="Cari..." class="w-full bg-transparent outline-none text-sm text-slate-800 placeholder-slate-400">
+            </div>
+
+            <ul class="hidden md:flex items-center gap-6 m-0 p-0 list-none">
+                <li><a href="home.html" class="nav-link" aria-current="page">Untuk Anda</a></li>
+                <li><a href="community.html" class="nav-link">Komunitas</a></li>
+                <li><a href="inbox.html" class="nav-link">Kotak Masuk</a></li>
+                <li><a href="profile.html" class="nav-link">Anda</a></li>
+            </ul>
+        </div>
+        <div id="mobile-accordion" class="mobile-accordion hidden md:hidden">
+            <a href="home.html" class="nav-link" aria-current="page">Untuk Anda</a>
+            <a href="community.html" class="nav-link">Komunitas</a>
+            <a href="inbox.html" class="nav-link">Kotak Masuk</a>
+            <a href="profile.html" class="nav-link">Anda</a>
+        </div>
+    </nav>
+
+    <main class="page-content max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
+        <section class="min-w-0 lg:col-span-2 space-y-4" aria-label="Detail postingan dan komentar">
+            <a href="home.html" class="inline-flex items-center gap-2 text-sm font-semibold text-forest hover:text-crimson transition">
+                <span aria-hidden="true">←</span> Kembali ke feed
+            </a>
+
+            <article class="bg-white p-5 sm:p-7 rounded-3xl border border-forest/20 shadow-sm space-y-5">
+                <header class="flex items-start justify-between gap-3">
+                    <div class="flex items-center gap-3">
+                        <div class="w-11 h-11 rounded-full bg-mint border border-forest flex items-center justify-center text-forest font-bold text-sm shrink-0" aria-hidden="true">ST</div>
+                        <div>
+                            <div class="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                                <span class="font-bold text-slate-800">Salim Thirza</span>
+                                <span class="text-xs text-slate-400">@limsalim</span>
+                            </div>
+                            <div class="flex flex-wrap items-center gap-2 mt-1 text-xs text-slate-400">
+                                <span class="px-2 py-0.5 rounded-full bg-mint/60 text-forest font-semibold text-[10px] border border-forest/20">p/makananenak</span>
+                                <span>2 jam yang lalu</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" aria-label="Menu postingan" class="p-2 rounded-full text-slate-400 hover:text-forest hover:bg-mint transition">•••</button>
+                </header>
+
+                <div class="space-y-3">
+                    <h1 class="text-xl sm:text-2xl font-bold text-slate-800 leading-snug">Rekomendasi Nasi Goreng Gila Paling Mantap di Kota Medan, Bumbu Meresap Banget!</h1>
+                    <p class="text-sm sm:text-base text-slate-600 leading-relaxed">
+                        Tadi sempet mampir nyobain varian baru. Porsinya gila sih melimpah banget, isian sosis sama baksonya gak pelit. Worth it banget buat makan malam pas lagi lapar berat!
+                    </p>
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa2cPwUmVLq-2IgdR0p8Xv5GE6vLLA4Ro7gV90b5inO3P_zlhT25ssJNLZ&amp;s=10"
+                        alt="Foto nasi goreng gila dengan topping melimpah"
+                        loading="lazy"
+                        class="w-full max-h-[28rem] rounded-2xl border border-slate-100 object-cover"
+                    >
+                </div>
+
+                <div class="flex flex-wrap items-center gap-2 pt-4 border-t border-slate-100">
+                    <div class="flex items-center rounded-full bg-slate-100 border border-slate-200 p-0.5 text-sm font-semibold text-slate-600">
+                        <button type="button" aria-label="Upvote, 42 suara" class="px-3 py-1.5 rounded-full hover:bg-mint hover:text-forest transition">▲ <span class="ml-1">42</span></button>
+                        <span class="text-slate-300">|</span>
+                        <button type="button" aria-label="Downvote" class="px-3 py-1.5 rounded-full hover:bg-crimson/10 hover:text-crimson transition">▼</button>
+                    </div>
+                    <span class="px-3 py-1.5 rounded-full bg-mint text-forest border border-forest/20 text-xs font-semibold">12 komentar</span>
+                    <button type="button" class="ml-auto px-3 py-1.5 rounded-full bg-slate-100 hover:bg-mint hover:text-forest border border-slate-200 text-xs font-medium text-slate-600 transition">↗ Bagikan</button>
+                </div>
+            </article>
+
+            <section class="bg-white p-5 sm:p-7 rounded-3xl border border-forest/20 shadow-sm space-y-5" aria-labelledby="comments-heading">
+                <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 pb-4">
+                    <div>
+                        <h2 id="comments-heading" class="text-lg font-bold text-slate-800">Diskusi</h2>
+                        <p class="text-xs text-slate-500 mt-1"><span id="comment-count">12</span> komentar pada postingan ini</p>
+                    </div>
+                    <label class="flex items-center gap-2 text-xs text-slate-500">
+                        Urutkan
+                        <select class="rounded-full border border-slate-200 bg-white px-3 py-1.5 text-slate-700 focus:outline-none focus:border-forest">
+                            <option>Terbaru</option>
+                            <option>Terpopuler</option>
+                        </select>
+                    </label>
+                </div>
+
+                <form id="comment-form" class="flex gap-3">
+                    <div class="w-9 h-9 rounded-full bg-forest text-white flex items-center justify-center text-xs font-bold shrink-0" aria-hidden="true">K</div>
+                    <div class="flex-1 space-y-2">
+                        <label for="comment-input" class="sr-only">Tulis komentar</label>
+                        <textarea id="comment-input" rows="2" required maxlength="500" placeholder="Ikut nimbrung di diskusi..." class="w-full resize-y rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700 placeholder-slate-400 focus:outline-none focus:border-forest"></textarea>
+                        <div class="flex justify-end">
+                            <button type="submit" class="rounded-full bg-forest px-4 py-2 text-xs font-bold text-white hover:bg-green-700 transition">Kirim komentar</button>
+                        </div>
+                    </div>
+                </form>
+
+                <ol id="comments-list" class="divide-y divide-slate-100">
+                    <li class="py-5 first:pt-0">
+                        <article class="flex gap-3">
+                            <div class="w-9 h-9 rounded-full bg-orange-100 text-orange-700 flex items-center justify-center text-xs font-bold shrink-0" aria-hidden="true">RA</div>
+                            <div class="min-w-0 flex-1">
+                                <header class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                                    <h3 class="text-sm font-bold text-slate-800">Raka Aditya</h3><span class="text-xs text-slate-400">@rakaadit</span><time class="text-xs text-slate-400">· 1 jam lalu</time>
+                                </header>
+                                <p class="mt-2 text-sm leading-relaxed text-slate-600">Boleh spill lokasinya di mana, Lim? Lagi cari nasi goreng enak buat makan malam.</p>
+                                <div class="mt-3 flex items-center gap-4 text-xs text-slate-400"><button type="button" class="hover:text-crimson transition">♡ 8</button><button type="button" class="hover:text-forest transition">Balas</button></div>
+                                <div class="mt-4 ml-2 border-l-2 border-mint pl-4">
+                                    <div class="flex gap-3">
+                                        <div class="w-7 h-7 rounded-full bg-mint text-forest flex items-center justify-center text-[10px] font-bold shrink-0" aria-hidden="true">ST</div>
+                                        <div><p class="text-xs"><strong class="text-slate-800">Salim Thirza</strong> <span class="text-slate-400">@limsalim · 56 menit lalu</span></p><p class="mt-1 text-sm text-slate-600">Di Jalan Dr. Mansyur, dekat simpang kampus! Biasanya buka sampai malam.</p></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="py-5">
+                        <article class="flex gap-3">
+                            <div class="w-9 h-9 rounded-full bg-sky-100 text-sky-700 flex items-center justify-center text-xs font-bold shrink-0" aria-hidden="true">DN</div>
+                            <div class="min-w-0 flex-1">
+                                <header class="flex flex-wrap items-center gap-x-2 gap-y-1"><h3 class="text-sm font-bold text-slate-800">Dina Nabila</h3><span class="text-xs text-slate-400">@dinanab</span><time class="text-xs text-slate-400">· 1 jam lalu</time></header>
+                                <p class="mt-2 text-sm leading-relaxed text-slate-600">Setuju banget! Porsinya bisa buat berdua, tapi biasanya tetap habis sendiri karena enak 😭</p>
+                                <div class="mt-3 flex items-center gap-4 text-xs text-slate-400"><button type="button" class="hover:text-crimson transition">♡ 6</button><button type="button" class="hover:text-forest transition">Balas</button></div>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="py-5">
+                        <article class="flex gap-3">
+                            <div class="w-9 h-9 rounded-full bg-violet-100 text-violet-700 flex items-center justify-center text-xs font-bold shrink-0" aria-hidden="true">FA</div>
+                            <div class="min-w-0 flex-1">
+                                <header class="flex flex-wrap items-center gap-x-2 gap-y-1"><h3 class="text-sm font-bold text-slate-800">Fajar Ananda</h3><span class="text-xs text-slate-400">@fajarn</span><time class="text-xs text-slate-400">· 1 jam lalu</time></header>
+                                <p class="mt-2 text-sm leading-relaxed text-slate-600">Level pedasnya bisa request? Pengen yang pedasnya nampol.</p>
+                                <div class="mt-3 flex items-center gap-4 text-xs text-slate-400"><button type="button" class="hover:text-crimson transition">♡ 3</button><button type="button" class="hover:text-forest transition">Balas</button></div>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="py-5">
+                        <article class="flex gap-3">
+                            <div class="w-9 h-9 rounded-full bg-pink-100 text-pink-700 flex items-center justify-center text-xs font-bold shrink-0" aria-hidden="true">ML</div>
+                            <div class="min-w-0 flex-1">
+                                <header class="flex flex-wrap items-center gap-x-2 gap-y-1"><h3 class="text-sm font-bold text-slate-800">Maya Lestari</h3><span class="text-xs text-slate-400">@mayalestari</span><time class="text-xs text-slate-400">· 58 menit lalu</time></header>
+                                <p class="mt-2 text-sm leading-relaxed text-slate-600">Topping telurnya yang setengah matang juga enak banget, wajib coba!</p>
+                                <div class="mt-3 flex items-center gap-4 text-xs text-slate-400"><button type="button" class="hover:text-crimson transition">♡ 5</button><button type="button" class="hover:text-forest transition">Balas</button></div>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="py-5">
+                        <article class="flex gap-3">
+                            <div class="w-9 h-9 rounded-full bg-lime-100 text-lime-700 flex items-center justify-center text-xs font-bold shrink-0" aria-hidden="true">BP</div>
+                            <div class="min-w-0 flex-1">
+                                <header class="flex flex-wrap items-center gap-x-2 gap-y-1"><h3 class="text-sm font-bold text-slate-800">Bima Pratama</h3><span class="text-xs text-slate-400">@bimap</span><time class="text-xs text-slate-400">· 50 menit lalu</time></header>
+                                <p class="mt-2 text-sm leading-relaxed text-slate-600">Aku sering lewat sana tapi belum pernah mampir. Jadi penasaran sekarang.</p>
+                                <div class="mt-3 flex items-center gap-4 text-xs text-slate-400"><button type="button" class="hover:text-crimson transition">♡ 2</button><button type="button" class="hover:text-forest transition">Balas</button></div>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="py-5">
+                        <article class="flex gap-3">
+                            <div class="w-9 h-9 rounded-full bg-yellow-100 text-yellow-700 flex items-center justify-center text-xs font-bold shrink-0" aria-hidden="true">SC</div>
+                            <div class="min-w-0 flex-1">
+                                <header class="flex flex-wrap items-center gap-x-2 gap-y-1"><h3 class="text-sm font-bold text-slate-800">Salsa Citra</h3><span class="text-xs text-slate-400">@salsac</span><time class="text-xs text-slate-400">· 45 menit lalu</time></header>
+                                <p class="mt-2 text-sm leading-relaxed text-slate-600">Harganya masih ramah kantong gak? Kelihatannya topping-nya banyak banget.</p>
+                                <div class="mt-3 flex items-center gap-4 text-xs text-slate-400"><button type="button" class="hover:text-crimson transition">♡ 4</button><button type="button" class="hover:text-forest transition">Balas</button></div>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="py-5">
+                        <article class="flex gap-3">
+                            <div class="w-9 h-9 rounded-full bg-teal-100 text-teal-700 flex items-center justify-center text-xs font-bold shrink-0" aria-hidden="true">YR</div>
+                            <div class="min-w-0 flex-1">
+                                <header class="flex flex-wrap items-center gap-x-2 gap-y-1"><h3 class="text-sm font-bold text-slate-800">Yoga Ramadhan</h3><span class="text-xs text-slate-400">@yogaram</span><time class="text-xs text-slate-400">· 40 menit lalu</time></header>
+                                <p class="mt-2 text-sm leading-relaxed text-slate-600">Kalau dibungkus porsinya tetap banyak? Mau bawain buat teman kos.</p>
+                                <div class="mt-3 flex items-center gap-4 text-xs text-slate-400"><button type="button" class="hover:text-crimson transition">♡ 1</button><button type="button" class="hover:text-forest transition">Balas</button></div>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="py-5">
+                        <article class="flex gap-3">
+                            <div class="w-9 h-9 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center text-xs font-bold shrink-0" aria-hidden="true">AP</div>
+                            <div class="min-w-0 flex-1">
+                                <header class="flex flex-wrap items-center gap-x-2 gap-y-1"><h3 class="text-sm font-bold text-slate-800">Aulia Putri</h3><span class="text-xs text-slate-400">@auliap</span><time class="text-xs text-slate-400">· 35 menit lalu</time></header>
+                                <p class="mt-2 text-sm leading-relaxed text-slate-600">Wah, rekomendasi yang pas banget buat anak kos yang lagi lapar malam-malam.</p>
+                                <div class="mt-3 flex items-center gap-4 text-xs text-slate-400"><button type="button" class="hover:text-crimson transition">♡ 3</button><button type="button" class="hover:text-forest transition">Balas</button></div>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="py-5">
+                        <article class="flex gap-3">
+                            <div class="w-9 h-9 rounded-full bg-cyan-100 text-cyan-700 flex items-center justify-center text-xs font-bold shrink-0" aria-hidden="true">RF</div>
+                            <div class="min-w-0 flex-1">
+                                <header class="flex flex-wrap items-center gap-x-2 gap-y-1"><h3 class="text-sm font-bold text-slate-800">Rizky Fachri</h3><span class="text-xs text-slate-400">@rizkyf</span><time class="text-xs text-slate-400">· 28 menit lalu</time></header>
+                                <p class="mt-2 text-sm leading-relaxed text-slate-600">Favoritku tambah acar sama kerupuk. Makin mantap makannya!</p>
+                                <div class="mt-3 flex items-center gap-4 text-xs text-slate-400"><button type="button" class="hover:text-crimson transition">♡ 2</button><button type="button" class="hover:text-forest transition">Balas</button></div>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="py-5">
+                        <article class="flex gap-3">
+                            <div class="w-9 h-9 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center text-xs font-bold shrink-0" aria-hidden="true">NW</div>
+                            <div class="min-w-0 flex-1">
+                                <header class="flex flex-wrap items-center gap-x-2 gap-y-1"><h3 class="text-sm font-bold text-slate-800">Nadia Wulandari</h3><span class="text-xs text-slate-400">@nadiaw</span><time class="text-xs text-slate-400">· 20 menit lalu</time></header>
+                                <p class="mt-2 text-sm leading-relaxed text-slate-600">Ada menu lain yang enak juga gak di tempat itu?</p>
+                                <div class="mt-3 flex items-center gap-4 text-xs text-slate-400"><button type="button" class="hover:text-crimson transition">♡ 1</button><button type="button" class="hover:text-forest transition">Balas</button></div>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="py-5">
+                        <article class="flex gap-3">
+                            <div class="w-9 h-9 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-xs font-bold shrink-0" aria-hidden="true">GH</div>
+                            <div class="min-w-0 flex-1">
+                                <header class="flex flex-wrap items-center gap-x-2 gap-y-1"><h3 class="text-sm font-bold text-slate-800">Gilang Hidayat</h3><span class="text-xs text-slate-400">@gilangh</span><time class="text-xs text-slate-400">· 12 menit lalu</time></header>
+                                <p class="mt-2 text-sm leading-relaxed text-slate-600">Tadi nyobain setelah lihat postingan ini. Beneran enak dan porsinya mantul!</p>
+                                <div class="mt-3 flex items-center gap-4 text-xs text-slate-400"><button type="button" class="hover:text-crimson transition">♡ 2</button><button type="button" class="hover:text-forest transition">Balas</button></div>
+                            </div>
+                        </article>
+                    </li>
+                    <li class="py-5 last:pb-0">
+                        <article class="flex gap-3">
+                            <div class="w-9 h-9 rounded-full bg-fuchsia-100 text-fuchsia-700 flex items-center justify-center text-xs font-bold shrink-0" aria-hidden="true">TI</div>
+                            <div class="min-w-0 flex-1">
+                                <header class="flex flex-wrap items-center gap-x-2 gap-y-1"><h3 class="text-sm font-bold text-slate-800">Tari Indah</h3><span class="text-xs text-slate-400">@tariindah</span><time class="text-xs text-slate-400">· 5 menit lalu</time></header>
+                                <p class="mt-2 text-sm leading-relaxed text-slate-600">Makasih rekomendasinya! Masuk daftar kuliner yang harus dicoba minggu ini ✨</p>
+                                <div class="mt-3 flex items-center gap-4 text-xs text-slate-400"><button type="button" class="hover:text-crimson transition">♡ 1</button><button type="button" class="hover:text-forest transition">Balas</button></div>
+                            </div>
+                        </article>
+                    </li>
+                </ol>
+            </section>
+        </section>
+
+        <aside class="hidden lg:block">
+            <div class="sticky top-24 rounded-3xl border border-forest/20 bg-white p-6 shadow-sm space-y-3">
+                <span class="text-2xl" aria-hidden="true">💬</span>
+                <h2 class="font-bold text-slate-800">Ruang diskusi</h2>
+                <p class="text-sm leading-relaxed text-slate-500">Bagikan pengalaman dan rekomendasi dengan tetap ramah kepada sesama.</p>
+                <div class="border-t border-slate-100 pt-3 text-xs text-slate-500">
+                    <span class="font-bold text-forest">p/makananenak</span>
+                    <span class="block mt-1">Komunitas pecinta kuliner</span>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <script>
+        const commentForm = document.getElementById("comment-form");
+        const commentsList = document.getElementById("comments-list");
+        const commentCount = document.getElementById("comment-count");
+        const commentInput = document.getElementById("comment-input");
+
+        commentForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const text = commentInput.value.trim();
+            if (!text) {
+                return;
+            }
+
+            const item = document.createElement("li");
+            item.className = "py-5";
+            item.innerHTML = `
+                <article class="flex gap-3">
+                    <div class="w-9 h-9 rounded-full bg-forest text-white flex items-center justify-center text-xs font-bold shrink-0" aria-hidden="true">K</div>
+                    <div class="min-w-0 flex-1">
+                        <header class="flex flex-wrap items-center gap-x-2 gap-y-1">
+                            <h3 class="text-sm font-bold text-slate-800">Kamu</h3>
+                            <span class="text-xs text-slate-400">@kamu</span>
+                            <time class="text-xs text-slate-400">· baru saja</time>
+                        </header>
+                        <p class="mt-2 text-sm leading-relaxed text-slate-600"></p>
+                    </div>
+                </article>`;
+            item.querySelector("p").textContent = text;
+            commentsList.append(item);
+            commentCount.textContent = String(Number(commentCount.textContent) + 1);
+            commentInput.value = "";
+        });
+    </script>
+</body>
+</html>
