@@ -9,6 +9,7 @@ import NotFoundPage from './pages/NotFoundPage'
 import PostPage from './pages/PostPage'
 import ProfilePage from './pages/ProfilePage'
 import RegisterPage from './pages/RegisterPage'
+import SearchPage from './pages/SearchPage'
 import SettingsPage from './pages/SettingsPage'
 import SubpinggPage from './pages/SubpinggPage'
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/submit" element={<CreatePostPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/search" element={<SearchPage />} />
         <Route path="/inbox" element={<InboxPage />} />
         <Route path="/profile" element={<ProfilePage />} />
         <Route path="/settings" element={<SettingsPage />} />

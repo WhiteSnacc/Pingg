@@ -180,6 +180,71 @@ export async function getFeed(sort: FeedSort): Promise<Post[]> {
   return data.map((post) => mapPost(post, votes.get(post.id) ?? 0))
 }
 
+export async function searchPosts(term: string): Promise<Post[]> {
+  const normalizedTerm = term.trim()
+  if (!normalizedTerm) {
+    return []
+  }
+
+  const escapedTerm = normalizedTerm.replace(/[\\%_]/g, '\\$&')
+  const pattern = `%${escapedTerm}%`
+  const client = getClient()
+  const [usernameResult, displayNameResult, titleResult] = await Promise.all([
+    client.from('profiles').select('id').ilike('username', pattern).limit(100),
+    client
+      .from('profiles')
+      .select('id')
+      .ilike('display_name', pattern)
+      .limit(100),
+    feedQuery()
+      .eq('status', 'aktif')
+      .ilike('title', pattern)
+      .order('created_at', { ascending: false })
+      .limit(50),
+  ])
+  if (usernameResult.error) {
+    throw usernameResult.error
+  }
+  if (displayNameResult.error) {
+    throw displayNameResult.error
+  }
+  if (titleResult.error) {
+    throw titleResult.error
+  }
+
+  const authorIds = [
+    ...new Set([
+      ...usernameResult.data.map((profile) => profile.id),
+      ...displayNameResult.data.map((profile) => profile.id),
+    ]),
+  ]
+  let authorPosts: FeedRow[] = []
+  if (authorIds.length > 0) {
+    const { data, error } = await feedQuery()
+      .eq('status', 'aktif')
+      .in('author_id', authorIds)
+      .order('created_at', { ascending: false })
+      .limit(50)
+    if (error) {
+      throw error
+    }
+    authorPosts = data
+  }
+
+  const rows = [...new Map(
+    [...titleResult.data, ...authorPosts].map((post) => [post.id, post]),
+  ).values()].sort(
+    (first, second) =>
+      Date.parse(second.created_at) - Date.parse(first.created_at),
+  )
+  const viewerId = await getViewerId()
+  const votes = await getPostViewerVotes(
+    viewerId,
+    rows.map((post) => post.id),
+  )
+  return rows.map((post) => mapPost(post, votes.get(post.id) ?? 0))
+}
+
 export async function getSubpinggs(): Promise<Subpingg[]> {
   const { data, error } = await getClient()
     .from('subpinggs')

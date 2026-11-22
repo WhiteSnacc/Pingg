@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import type { FormEvent } from 'react'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 const links = [
   { to: '/', label: 'Untuk Anda', end: true },
@@ -10,7 +11,17 @@ const links = [
 ]
 
 function Navbar() {
+  const navigate = useNavigate()
   const [menuOpen, setMenuOpen] = useState(false)
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const handleSearch = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+    const query = searchTerm.trim()
+    if (query) {
+      navigate(`/search?q=${encodeURIComponent(query)}`)
+    }
+  }
 
   return (
     <nav className="site-nav sticky top-0 left-0 z-50 w-full border-b-2 border-maroon bg-mint">
@@ -24,9 +35,9 @@ function Navbar() {
             className="flex h-5 w-6 flex-col justify-between border-none bg-transparent md:hidden"
             onClick={() => setMenuOpen((open) => !open)}
           >
-            <span className="h-[3px] w-full rounded bg-forest" />
-            <span className="h-[3px] w-full rounded bg-forest" />
-            <span className="h-[3px] w-full rounded bg-forest" />
+            <span className="h-0.75 w-full rounded bg-forest" />
+            <span className="h-0.75 w-full rounded bg-forest" />
+            <span className="h-0.75 w-full rounded bg-forest" />
           </button>
           <NavLink
             to="/"
@@ -38,14 +49,16 @@ function Navbar() {
         </div>
 
         <form
-          className="flex max-w-[200px] flex-1 items-center rounded-full border border-forest bg-white px-3 py-1.5 sm:max-w-[300px]"
+          className="flex max-w-50 flex-1 items-center rounded-full border border-forest bg-white px-3 py-1.5 sm:max-w-75"
           role="search"
-          onSubmit={(event) => event.preventDefault()}
+          onSubmit={handleSearch}
         >
           <input
             type="search"
             aria-label="Cari"
             placeholder="Cari..."
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
             className="w-full bg-transparent text-sm text-slate-800 outline-none placeholder:text-slate-400"
           />
         </form>
