@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mint: #e8fff4;
+  --color-forest: #178549;
+  --color-maroon: #701414;
+  --color-crimson: #dc143c;
+}
+
+html {
+  min-width: 320px;
+  background: #f8fafc;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.site-nav {
+  position: sticky;
+}
+
+.nav-link {
+  position: relative;
+  color: #178549;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 160ms ease, opacity 160ms ease;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
+}
+
+.nav-link[aria-current="page"] {
+  color: #dc143c;
+  font-weight: 700;
+}
+
+.nav-link[aria-current="page"]::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.4rem;
+  left: 0;
+  height: 2px;
+  border-radius: 9999px;
+  background: currentColor;
+  content: "";
+}
+
+.mobile-accordion {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 50;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid #701414;
+  background: #e8fff4;
+  box-shadow: 0 8px 16px rgb(0 0 0 / 12%);
+}
+
+.mobile-accordion.hidden {
+  display: none;
+}
+
+.mobile-accordion .nav-link {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.mobile-accordion .nav-link[aria-current="page"] {
+  background: rgb(23 133 73 / 10%);
+}
+
+.mobile-accordion .nav-link::after {
+  content: none;
+}
+
+@media (min-width: 48rem) {
+  .mobile-accordion {
+    display: none;
+  }
+}
