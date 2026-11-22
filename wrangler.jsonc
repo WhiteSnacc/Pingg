@@ -6,8 +6,6 @@
     "not_found_handling": "single-page-application"
   },
   "vars": {
-    "VITE_SUPABASE_PUBLISHABLE_KEY": "sb_publishable_zPCrwyKbbXnEvdZb81cyYw_OnUXvuK2",
-    "VITE_SUPABASE_URL": "https://odwcrwuvwextzukgrkwi.supabase.co"
   }
   // ...
 }
